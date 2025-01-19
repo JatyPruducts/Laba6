@@ -1,0 +1,42 @@
+<main>
+    <!-- Jumbotron -->
+    <section
+      class="jumbotron text-center mt-4"
+      style="background-color: beige; background-position: center center"
+    >
+      <h1 class="display-4">Всякие туры</h1>
+      <p class="lead"> {{ data.subtitle }} </p>
+      <p class="mt-5 w-50 mx-auto">{{ data.description }}</p>
+    </section>
+  
+    <!-- CARDS -->
+    <div class="row mt-5">
+      <div
+        class="col-4"
+        *ngFor="let tour of tours"
+      >
+        <div class="card mb-4">
+          <!-- Изображение -->
+          <img
+            class="card-img-top"
+            [src]="tour.picture"
+            alt="Tour Image"
+            style="object-fit: cover; height: 200px;"
+          />
+          <div class="card-body">
+            <h2 class="h5 card-title">{{ tour.title }}</h2>
+            <p class="card-text">
+              {{ tour.description | slice:0:120 }}...
+            </p>
+            <!-- Ссылка на детальную страницу -->
+            <a
+              [routerLink]="['/tours', tour.id]"
+              class="btn btn-sm btn-primary"
+            >
+              Подробнее
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>

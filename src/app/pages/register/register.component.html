@@ -1,0 +1,46 @@
+<div class="container mt-4" style="max-width: 400px;">
+    <h2>Регистрация</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Логин</label>
+        <input
+          id="username"
+          type="text"
+          class="form-control"
+          formControlName="username"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Пароль</label>
+        <input
+          id="password"
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="confirmPassword">Подтверждение пароля</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          class="form-control"
+          formControlName="confirmPassword"
+        />
+      </div>
+  
+      <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+        {{ errorMessage }}
+      </div>
+  
+      <div *ngIf="successMessage" class="alert alert-success mt-2">
+        {{ successMessage }}
+      </div>
+  
+      <button class="btn btn-primary mt-3" type="submit" [disabled]="registerForm.invalid">
+        Зарегистрироваться
+      </button>
+    </form>
+  </div>

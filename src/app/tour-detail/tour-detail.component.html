@@ -1,0 +1,18 @@
+<div *ngIf="isLoading">Загрузка...</div>
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<div *ngIf="tour && !isLoading && !errorMessage">
+  <h2 class="mb-3">
+    {{ tour.title }}
+    <span *ngFor="let star of [].constructor(tour.stars)">★</span>
+  </h2>
+  <p><strong>Страна:</strong> {{ tour.country }}</p>
+  <p><strong>Ночей:</strong> {{ tour.nights }}</p>
+  <p><strong>Цена:</strong> {{ tour.price }} ₽</p>
+  <p><strong>Код вылета:</strong> {{ tour.departureId }}</p>
+  <img [src]="tour.picture" alt="Tour image" style="max-width: 600px;" />
+  <p class="mt-3">
+    {{ tour.description }}
+  </p>
+  <button class="btn btn-success btn-lg">Купить</button>
+</div>
